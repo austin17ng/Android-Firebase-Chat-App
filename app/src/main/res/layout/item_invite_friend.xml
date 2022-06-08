@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="user"
+            type="com.example.mychatapp.model.User" />
+
+        <variable
+            name="inviteListener"
+            type="com.example.mychatapp.adapter.InviteListener" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layout_item_invite_friend"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/default_padding">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/img_friend"
+            imageUrl="@{user.photoUrl}"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:src="@drawable/img_avatar"
+            tools:src="@drawable/img_avatar" />
+
+        <TextView
+            android:id="@+id/friend_nickname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/default_padding"
+            android:text="@{user.nickname}"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toEndOf="@+id/img_friend"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="tungnnnt17" />
+
+        <TextView
+            android:id="@+id/friend_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="@{user.displayName}"
+            app:layout_constraintStart_toStartOf="@+id/friend_nickname"
+            app:layout_constraintTop_toBottomOf="@+id/friend_nickname"
+            tools:text="Tung Nguyen" />
+        <Button
+            android:id="@+id/button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Invite"
+            android:textAllCaps="false"
+            android:background="@drawable/round_blue_shape"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

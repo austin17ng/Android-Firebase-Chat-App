@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">My Chat App</string>
+    <string name="action_settings">Settings</string>
+    <!-- Strings used for fragments for nav_rooms -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="long_text">Morbi ac faucibus eros. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Etiam egestas a diam vel commodo. Suspendisse lobortis, augue eget dapibus consectetur, tortor dolor tincidunt ipsum, quis interdum sapien diam non purus. Donec tincidunt posuere felis at suscipit. Aenean commodo eleifend dolor ac ornare. Donec venenatis ante at dui lobortis iaculis. Sed lacinia ipsum ut ipsum blandit, eget fringilla nunc pretium.</string>
+    <string name="title_activity_sign_up">SignUpActivity</string>
+</resources>

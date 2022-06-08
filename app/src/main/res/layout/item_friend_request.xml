@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <variable
+            name="user"
+            type="com.example.mychatapp.model.User" />
+        <variable
+            name="confirm"
+            type="com.example.mychatapp.adapter.ConfirmListener" />
+        <variable
+            name="delete"
+            type="com.example.mychatapp.adapter.DeleteListener" />
+    </data>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/default_padding">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/img_request"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            imageUrl="@{user.photoUrl}"
+            android:src="@drawable/img_avatar" />
+
+        <TextView
+            android:id="@+id/request_nickname"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/default_padding"
+            android:layout_marginEnd="@dimen/default_padding"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@+id/btn_confirm_request"
+            app:layout_constraintStart_toEndOf="@+id/img_request"
+            app:layout_constraintTop_toTopOf="parent"
+            android:text="@{user.nickname}"
+            tools:text="tungnnnt17" />
+
+        <TextView
+            android:id="@+id/request_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="@dimen/default_padding"
+            app:layout_constraintEnd_toStartOf="@+id/btn_confirm_request"
+            app:layout_constraintStart_toStartOf="@+id/request_nickname"
+            app:layout_constraintTop_toBottomOf="@+id/request_nickname"
+            android:text="@{user.displayName}"
+            tools:text="Tung Nguyen" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_confirm_request"
+            style="@style/roundBlueButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/default_padding"
+            android:text="Confirm"
+            android:onClick="@{() -> confirm.confirm(user)}"
+            app:cornerRadius="20dp"
+            app:layout_constraintEnd_toStartOf="@id/btn_delete_request"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_delete_request"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/gray"
+            android:text="Delete"
+            android:onClick="@{() -> delete.delete(user)}"
+            android:textAllCaps="false"
+            android:textColor="@color/black"
+            app:cornerRadius="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

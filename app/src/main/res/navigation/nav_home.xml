@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_home"
+    app:startDestination="@id/nav_rooms">
+    <navigation
+        android:id="@+id/nav_friends"
+        app:startDestination="@id/friendsFragment">
+        <fragment
+            android:id="@+id/friendsFragment"
+            android:name="com.example.mychatapp.FriendsFragment"
+            android:label="Friends"
+            tools:layout="@layout/fragment_friends">
+            <action
+                android:id="@+id/action_friendsFragment_to_findFriendFragment"
+                app:destination="@id/findFriendFragment"
+                app:enterAnim="@anim/in_from_bottom"
+                app:exitAnim="@anim/out_to_top"
+                app:popEnterAnim="@anim/in_from_top"
+                app:popExitAnim="@anim/out_to_bottom" />
+        </fragment>
+        <fragment
+            android:id="@+id/findFriendFragment"
+            android:name="com.example.mychatapp.FindFriendFragment"
+            android:label="Find friends"
+            tools:layout="@layout/fragment_find_friend" />
+    </navigation>
+    <navigation android:id="@+id/nav_rooms"
+        app:startDestination="@id/roomListFragment">
+        <fragment
+            android:id="@+id/roomListFragment"
+            android:name="com.example.mychatapp.RoomListFragment"
+            android:label="Home"
+            tools:layout="@layout/fragment_room_list">
+            <action
+                android:id="@+id/action_roomListFragment_to_chatFragment"
+                app:destination="@id/chatFragment" />
+            <action
+                android:id="@+id/action_roomListFragment_to_createRoomFragment"
+                app:destination="@id/createRoomFragment" />
+        </fragment>
+        <fragment
+            android:id="@+id/chatFragment"
+            android:name="com.example.mychatapp.ChatFragment"
+            tools:layout="@layout/fragment_chat">
+            <argument
+                android:name="roomId"
+                app:argType="string" />
+            <argument
+                android:name="roomName"
+                app:argType="string" />
+            <action
+                android:id="@+id/action_chatFragment_to_roomSettingsFragment"
+                app:destination="@id/roomSettingsFragment" />
+        </fragment>
+        <fragment
+            android:id="@+id/createRoomFragment"
+            android:name="com.example.mychatapp.CreateRoomFragment"
+            android:label="Create Your Room"
+            tools:layout="@layout/fragment_create_room" />
+        <fragment
+            android:id="@+id/roomSettingsFragment"
+            android:name="com.example.mychatapp.RoomSettingsFragment"
+            android:label="Room Info"
+            tools:layout="@layout/fragment_room_settings">
+            <argument
+                android:name="roomId"
+                app:argType="string" />
+            <action
+                android:id="@+id/action_roomSettingsFragment_to_roomListFragment"
+                app:destination="@id/roomListFragment"
+                app:popUpTo="@id/roomListFragment" />
+            <action
+                android:id="@+id/action_roomSettingsFragment_to_inviteFriendFragment"
+                app:destination="@id/inviteFriendFragment" />
+        </fragment>
+        <fragment
+            android:id="@+id/inviteFriendFragment"
+            android:name="com.example.mychatapp.InviteFriendFragment"
+            android:label="Add People"
+            tools:layout="@layout/fragment_invite_friend">
+            <argument
+                android:name="roomId"
+                app:argType="string" />
+        </fragment>
+    </navigation>
+    <navigation android:id="@+id/nav_profile"
+        app:startDestination="@id/profileFragment">
+        <fragment
+            android:id="@+id/profileFragment"
+            android:name="com.example.mychatapp.ProfileFragment"
+            android:label="Profile"
+            tools:layout="@layout/fragment_profile">
+            <action
+                android:id="@+id/action_profileFragment_to_editProfileFragment"
+                app:destination="@id/editProfileFragment" />
+        </fragment>
+        <fragment
+            android:id="@+id/editProfileFragment"
+            android:name="com.example.mychatapp.EditProfileFragment"
+            android:label="Edit Profile"
+            tools:layout="@layout/fragment_edit_profile" />
+    </navigation>
+</navigation>
